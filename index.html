@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f0f4f0" />
+  <title>一起喝点</title>
+  <script type="module" crossorigin src="./assets/index-Boxxzk2Y.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-AwTO6Ba6.css">
+  <style>
+    /* ===== 清新绿色风格覆盖 ===== */
+    * { -webkit-font-smoothing: antialiased; }
+
+    /* 背景：浅灰绿 */
+    html, body {
+      background: #f0f4f0 !important;
+      color: #1a2e1a !important;
+    }
+    .page-container {
+      background: linear-gradient(180deg, #e8f0e8 0%, #f0f4f0 100px, #f5f8f5 100%) !important;
+    }
+
+    /* 导航栏 */
+    .nav-bar .nav-title {
+      background: linear-gradient(135deg, #2d8a4e, #4ade80) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+    .nav-bar .nav-actions { color: #3d6b4f !important; }
+
+    /* 地图切换栏 */
+    .map-toggle-bar .toggle-switch {
+      background: #d4e8d4 !important;
+    }
+    .map-toggle-bar .toggle-btn {
+      color: #4a7a5a !important;
+    }
+    .map-toggle-bar .toggle-btn.active {
+      background: linear-gradient(135deg, #2d8a4e, #4ade80) !important;
+      color: #fff !important;
+      box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3) !important;
+    }
+
+    /* 位置信息 */
+    .location-info .loc-icon { color: #2d8a4e !important; }
+    .location-info .loc-text { color: #5a8a6a !important; }
+
+    /* 类型筛选 */
+    .type-chip {
+      background: #d4e8d4 !important;
+      color: #4a7a5a !important;
+    }
+    .type-chip.active {
+      background: linear-gradient(135deg, #2d8a4e, #4ade80) !important;
+      color: #fff !important;
+      box-shadow: 0 3px 12px rgba(74, 222, 128, 0.3) !important;
+    }
+
+    /* 地图容器 */
+    .map-container {
+      background: #c8dcc8 !important;
+      border: 1px solid rgba(45, 138, 78, 0.2) !important;
+      box-shadow: 0 8px 30px rgba(45, 138, 78, 0.15) !important;
+    }
+    .map-bg {
+      background: linear-gradient(135deg, #d8e8d8 0%, #c0d8c0 100%) !important;
+    }
+    .map-bg .map-grid {
+      stroke: #b8ccb8 !important;
+      opacity: 0.6;
+    }
+
+    /* 定位点 */
+    .my-loc-dot {
+      background: #2d8a4e !important;
+      border-color: #fff !important;
+      box-shadow: 0 0 0 4px rgba(45, 138, 78, 0.3) !important;
+    }
+    .my-loc-pulse {
+      background: rgba(45, 138, 78, 0.12) !important;
+    }
+    .my-loc-label {
+      color: #2d8a4e !important;
+      background: rgba(45, 138, 78, 0.15) !important;
+    }
+
+    /* 酒吧标记 */
+    .marker-price {
+      background: #f0f5e8 !important;
+      color: #6b4c1a !important;
+      border: 1px solid rgba(107, 76, 26, 0.2) !important;
+    }
+    .marker-qing .marker-ripple { background: #4ade80 !important; }
+    .marker-disco .marker-ripple { background: #ff6b9d !important; }
+    .marker-whisky .marker-ripple { background: #d4a574 !important; }
+    .marker-live .marker-ripple { background: #2d8a4e !important; }
+    .marker-home .marker-ripple { background: #34d399 !important; }
+    .marker-craft .marker-ripple { background: #fb923c !important; }
+
+    /* 酒友标记 */
+    .mate-avatar { border-color: #e8f0e8 !important; }
+    .mate-avatar-wrap.male {
+      filter: drop-shadow(0 0 6px rgba(45, 138, 78, 0.5)) !important;
+    }
+    .mate-avatar-wrap.female {
+      filter: drop-shadow(0 0 6px rgba(255, 107, 157, 0.5)) !important;
+    }
+
+    /* 酒吧列表 */
+    .bar-card {
+      background: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(45, 138, 78, 0.1) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 20px rgba(45, 138, 78, 0.08) !important;
+    }
+    .bar-card .bar-name {
+      color: #1a2e1a !important;
+      font-weight: 600;
+    }
+    .bar-card .bar-type {
+      color: #2d8a4e !important;
+      background: rgba(45, 138, 78, 0.1) !important;
+    }
+    .bar-card .bar-distance {
+      color: #5a8a6a !important;
+    }
+    .bar-card .bar-rating {
+      color: #d4a574 !important;
+    }
+    .bar-card .bar-price {
+      color: #6b4c1a !important;
+    }
+
+    /* 底部导航 */
+    .tab-bar {
+      background: rgba(255, 255, 255, 0.9) !important;
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(45, 138, 78, 0.1) !important;
+    }
+    .tab-bar .tab-item {
+      color: #6a9a7a !important;
+    }
+    .tab-bar .tab-item.active {
+      color: #2d8a4e !important;
+    }
+    .tab-bar .tab-item.active .tab-icon {
+      color: #2d8a4e !important;
+    }
+
+    /* 浮动按钮 */
+    .fab {
+      background: linear-gradient(135deg, #2d8a4e, #4ade80) !important;
+      box-shadow: 0 6px 20px rgba(45, 138, 78, 0.35) !important;
+    }
+    .fab:active {
+      transform: scale(0.95);
+    }
+
+    /* 搜索框 */
+    .search-bar {
+      background: rgba(255, 255, 255, 0.85) !important;
+      border: 1px solid rgba(45, 138, 78, 0.15) !important;
+      border-radius: 12px !important;
+    }
+    .search-bar input {
+      color: #1a2e1a !important;
+    }
+    .search-bar input::placeholder {
+      color: #7aaa8a !important;
+    }
+
+    /* 标签 */
+    .tag {
+      background: rgba(45, 138, 78, 0.1) !important;
+      color: #2d8a4e !important;
+    }
+
+    /* 卡片阴影 */
+    .glass-card, .card {
+      background: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(45, 138, 78, 0.1) !important;
+    }
+
+    /* 按钮 */
+    .btn-primary, .btn-main {
+      background: linear-gradient(135deg, #2d8a4e, #4ade80) !important;
+      color: #fff !important;
+      box-shadow: 0 4px 12px rgba(45, 138, 78, 0.3) !important;
+    }
+    .btn-secondary {
+      background: #d4e8d4 !important;
+      color: #2d8a4e !important;
+    }
+
+    /* 文字颜色覆盖 */
+    .text-primary { color: #1a2e1a !important; }
+    .text-secondary { color: #3d6b4f !important; }
+    .text-muted { color: #6a9a7a !important; }
+
+    /* 滚动条美化 */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #b8ccb8; border-radius: 3px; }
+
+    /* 动画增强 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .bar-card { animation: fadeIn 0.3s ease; }
+
+    /* 暗色元素覆盖 */
+    [style*="background:#1a1d25"], [style*="background: #1a1d25"] {
+      background: #d4e8d4 !important;
+    }
+    [style*="color:#889"], [style*="color: #889"] {
+      color: #5a8a6a !important;
+    }
+    [style*="color:#fff"], [style*="color: #fff"] {
+      color: #1a2e1a !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
